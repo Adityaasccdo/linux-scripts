@@ -1,0 +1,161 @@
+Git Basics – Day 3 Full Cheat Sheet with Detailed Learnings
+📍 What You Learned Today
+Today’s session was about the fundamentals of Git – a version control system used by developers to track changes in their codebase. You learned how to:
+
+Initialize a Git repository
+
+Track changes with git add and git commit
+
+View history and differences
+
+Work with branches and merges
+
+Use .gitignore to exclude files
+
+Undo mistakes using Git tools
+
+🛠️ Git Commands & Concepts – Explained
+1. Initialize a Git Repository
+Create a new Git project:
+
+bash
+Copy code
+git init
+🔹 This creates a hidden .git/ folder that starts tracking changes in your project.
+
+2. Creating and Tracking Files
+Create a file and start tracking it:
+
+bash
+Copy code
+echo "hello world" > hello.py
+git add hello.py
+git commit -m "Initial commit"
+🔹 git add stages your file for the next commit.
+🔹 git commit permanently records changes.
+
+3. View Repository Status
+bash
+Copy code
+git status
+🔹 Shows staged/unstaged changes and files that are untracked.
+
+4. View Commit History
+bash
+Copy code
+git log
+🔹 Displays all past commits in reverse chronological order.
+
+5. See Code Changes
+bash
+Copy code
+git diff
+🔹 Compares your working directory with the last commit.
+🔹 To compare with the previous version of a specific file:
+
+bash
+Copy code
+git diff HEAD~1 hello.py
+6. Creating & Working with Branches
+Create a new branch:
+
+bash
+Copy code
+git branch dev
+Switch to that branch:
+
+bash
+Copy code
+git checkout dev
+Shortcut to create and switch in one go:
+
+bash
+Copy code
+git checkout -b dev
+🔹 Branches help isolate development work without affecting the main project (main branch).
+
+7. Merging Branches
+First switch to the main branch:
+
+bash
+Copy code
+git checkout main
+Then merge your changes from dev:
+
+bash
+Copy code
+git merge dev
+🔹 After merging, you can safely delete the branch:
+
+bash
+Copy code
+git branch -d dev
+8. Ignore Files with .gitignore
+Create a .gitignore file:
+
+bash
+Copy code
+*.log
+*.tmp
+🔹 Prevents Git from tracking unnecessary files like logs, temp files, etc.
+
+9. Undoing Mistakes
+Unstage a file (if added by mistake):
+
+bash
+Copy code
+git reset hello.py
+Discard changes in a file (undo to last commit):
+
+bash
+Copy code
+git checkout -- hello.py
+10. Configure Git (User Info)
+Set your name and email (required for commits):
+
+bash
+Copy code
+git config --global user.name "Aditya"
+git config --global user.email "aditya@example.com"
+🧪 Sample Practice Flow for Task 3
+Step-by-Step Git Workflow
+bash
+Copy code
+# Step 1: Initialize Git
+git init
+
+# Step 2: Create a file
+echo "print('Hello')" > hello.py
+
+# Step 3: Add and commit
+git add hello.py
+git commit -m "Initial commit"
+
+# Step 4: Create and switch to a dev branch
+git checkout -b dev
+
+# Step 5: Make changes
+echo "# This is dev branch" >> hello.py
+git add hello.py
+git commit -m "Modified hello.py in dev branch"
+
+# Step 6: Merge dev into main
+git checkout main
+git merge dev
+
+# Step 7: Delete dev branch
+git branch -d dev
+
+# Step 8: Add .gitignore
+echo "*.log" > .gitignore
+echo "debug.log" > debug.log
+git add .gitignore
+git commit -m "Add .gitignore to ignore .log files"
+📁 Suggested Folder Structure for Task
+bash
+Copy code
+task3_git/
+├── hello.py            # tracked by Git
+├── debug.log           # ignored due to .gitignore
+├── .gitignore          # defines ignored patterns
+└── .git/               # hidden folder created by git init

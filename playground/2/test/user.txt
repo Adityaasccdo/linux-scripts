@@ -1,0 +1,3 @@
+john,developer,3000
+amy,designer,3500
+bob,manager,5000

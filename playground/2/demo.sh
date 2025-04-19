@@ -1,2 +1,3 @@
-#!/bin/bash
-echo "ab batao zara"
+hello
+there 
+hh
